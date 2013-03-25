@@ -1,0 +1,53 @@
+                        Mojavi CHANGELOG for 2.0.3b
+                  ------------------------------------
+
+
+----- BUG FIXES ----------------------------------------------------------------
+
+- Fixed "incorrect" reference passing for PHP 4.4.0 compatibility.
+http://forum.mojavi.org/index.php?showtopic=1214
+- Fixed a bug in the Error Logging system, where fatals were recorded as warnings, and warnings as fatals
+http://forum.mojavi.org/index.php?showtopic=1119
+- Fixed a bug in the controller that would cause a custom session container to be overwritten by the default.
+http://forum.mojavi.org/index.php?showtopic=1191
+- Fixed a bug in the ValidatorManager that prevented multi-value objects (arrays) from being validated at all, and possibly throwing an error.
+http://forum.mojavi.org/index.php?showtopic=899
+
+----- NOTABLE MODIFICATIONS ----------------------------------------------------
+
+- Views now have an optional initialize(&$controller,&$request,&$user) method.  This method can be used to perform common commands before a View is executed.  The designed use for this is to increase flexibility and re-usability by making the abstraction of a View easier, and cleaner. 
+
+----- DIRECTORY STRUCTURE ------------------------------------------------------
+
+lib/            - Source to all classes included in mojavi-all-classes.php
+                -
+                - *NOTE* this is included for your convenience, but is not
+                - required to run Mojavi
+
+lib/filter/     - Filter system
+
+lib/logging/    - Logging system
+
+opt/            - Optional classes that must be included manually
+                - Do NOT put custom classes in this directory otherwise they
+                - will be overridden when you get a new Mojavi version
+
+opt/auth/       - Custom authentication handlers
+
+opt/filters/    - Custom filters
+
+opt/logging/    - Custom logging utilities
+
+opt/renderers/  - Custom renderers
+
+opt/session/    - Custom session handlers
+
+opt/sql/        - SQL utilities
+
+opt/user/       - Custom user containers and members
+
+opt/util/       - Utility classes
+
+opt/validators/ - Custom validators
+
+webapp/         - Base directory structure for your web application
