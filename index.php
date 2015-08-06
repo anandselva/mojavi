@@ -141,5 +141,4 @@ die('Please configure your Mojavi installation and remove this line from index.p
  * Note: This section of initialization must be performed last.
  */
 $controller->dispatch();
-
 ?>
